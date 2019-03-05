@@ -5,15 +5,8 @@ const headerTitle = document.querySelector('body header div h1');
 
 headerTitle.addEventListener('click', function(event) {
     event.target.style.opacity = .2;
+    event.target.style.color = 'white';
 });
-
-
-// Container
-const container = document.querySelector('.home');
-
-container.addEventListener('wheel', function(event) {
-    event.target.style.backgroundColor = 'grey';
-})
 
 
 // Images
@@ -24,8 +17,21 @@ topImg.addEventListener('mouseover', function(event) {
 });
 
 
+// Container
+const container = document.querySelector('.home');
+
+container.addEventListener('wheel', function(event) {
+    event.target.style.backgroundColor = 'grey';
+})
+
+container.addEventListener('click', function(event) {
+    console.log(`Container Fired!`);
+})
+
+
 // Buttons
 const buttonMod = document.querySelectorAll('.content-pick .destination .btn');
+
 
 // buttonMod[0].addEventListener('mouseover', function() {
 //     console.log(`button`);
@@ -36,6 +42,10 @@ buttonMod.forEach(function(currentValue) {
          TweenMax.to(".btn", 2, {scale: 1.2, ease: Elastic. easeOut});   
          console.log(`button`);
     });
+    currentValue.addEventListener('click', function(event) {
+        console.log(`button pressed!`);
+        event.stopPropagation();
+    })
 })
 
 // H2 tags
@@ -64,3 +74,30 @@ pTags.forEach(function(currentValue) {
 // H4 Tags
 const hFour = document.querySelectorAll('h4');
 
+hFour.forEach(function(currentValue)  {
+    currentValue.addEventListener('wheel', function(event) {
+        event.target.style.display = 'none';
+    });
+})
+
+// NavBar
+const navBar = document.querySelectorAll('a');
+
+navBar.forEach(function(currentValue) {
+    currentValue.addEventListener('click', function(event) {
+        event.preventDefault;
+    });
+    currentValue.addEventListener('click', function(event) {
+        event.preventDefault;
+    });
+    currentValue.addEventListener('mouseover', function(event) {
+        event.target.style.color = 'white';
+    });
+});
+
+// Header
+const heady = document.querySelector('.main-navigation');
+
+heady.addEventListener('mouseover', function(event) {
+    event.target.style.background = 'green';
+});
